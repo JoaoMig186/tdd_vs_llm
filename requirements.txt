@@ -1,9 +1,0 @@
-transformers
-torch
-pytest
-rapidfuzz
-pandas
-scipy
-tqdm
-sentence-transformers
-scikit-learn
