@@ -1,4 +1,3 @@
-
 import json
 import re
 
@@ -10,9 +9,9 @@ def coherence_check(answer):
     sentences = [s.strip() for s in sentences if s.strip()]
     return len(sentences) > 0 and all(len(s.split()) >= 3 for s in sentences)
 
-with open("responses_raw.json") as f:
+with open("responses_raw.json", "r", encoding="utf-8") as f:
     responses = json.load(f)
-with open("ground_truth.json") as f:
+with open("ground_truth.json", "r", encoding="utf-8") as f:
     truths = json.load(f)
 
 validated = {}
@@ -29,5 +28,5 @@ for group, qs in responses.items():
             "coherent": coherent
         }
 
-with open("validated_tdd.json", "w") as f:
+with open("validated_tdd.json", "w", encoding="utf-8") as f:
     json.dump(validated, f, indent=2, ensure_ascii=False)

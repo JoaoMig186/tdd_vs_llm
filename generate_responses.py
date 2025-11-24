@@ -1,10 +1,13 @@
 
-from transformers import pipeline
+import google.generativeai as genai
 import json
+import os
+import time
 
-generator = pipeline("text-generation", model="distilgpt2")
+genai.configure(api_key="SUA_CHAVE_GIMINI_AQUI")
+model = genai.GenerativeModel("gemini-2.0-flash")
 
-with open("prompts.json") as f:
+with open("prompts.json", "r", encoding="utf-8") as f:
     prompts = json.load(f)
 
 responses = {}
@@ -12,8 +15,9 @@ responses = {}
 for group, qs in prompts.items():
     responses[group] = {}
     for q in qs:
-        output = generator(q, max_length=50, num_return_sequences=1)
-        responses[group][q] = output[0]['generated_text']
+        output = model.generate_content(q)
+        responses[group][q] = output.text
+        time.sleep(5) 
 
-with open("responses_raw.json", "w") as f:
+with open("responses_raw.json", "w", encoding="utf-8") as f:
     json.dump(responses, f, indent=2, ensure_ascii=False)
