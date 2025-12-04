@@ -1,10 +1,18 @@
 {
   "baseline": {
-    "factual": 33.33333333333333,
-    "coherence": 88.88888888888889
+    "factual": 44.44444444444444,
+    "coherence": 77.77777777777779,
+    "factual_count": "4/9",
+    "coherence_count": "7/9"
   },
   "tdd": {
-    "factual": 33.33333333333333,
-    "coherence": 88.88888888888889
+    "factual": 100.0,
+    "coherence": 100.0,
+    "factual_count": "9/9",
+    "coherence_count": "9/9"
+  },
+  "improvements": {
+    "factual": 55.55555555555556,
+    "coherence": 22.222222222222214
   }
 }

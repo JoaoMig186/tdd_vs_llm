@@ -3,7 +3,7 @@ import google.generativeai as genai
 import json
 import time
 
-genai.configure(api_key="SUA_CHAVE_GEMINI")
+genai.configure(api_key="AIzaSyCPmd-lf1IWGK0qZsVmst81TiIGegyzl6I")
 model = genai.GenerativeModel("gemini-2.0-flash")
 
 with open("prompts.json", "r", encoding="utf-8") as f:
